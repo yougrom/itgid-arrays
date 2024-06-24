@@ -38,26 +38,52 @@ document.querySelector('.b-2').onclick = f2;
 
 
 // TASK 03
-// По нажатию b-3 выполняется функция f3. Функция считывает значение из i-3 и с помощью indexOf и ищет данный элемент в массиве a3. Выводит в out-3  false, если такого элемента нет в массиве, и true если есть.
+// По нажатию b-3 выполняется функция f3. Функция считывает значение из i-3 и с помощью indexOf и ищет данный элемент в массиве a3.
+// Выводит в out-3  false, если такого элемента нет в массиве, и true если есть.
 // Как тестируется - ввожу числа и проверяю результат.
 
 
 let a3 = [4, 12, 4, 2, 15, 98];
 
 const f3 = () => {
+    let input = Number(document.querySelector('.i-3').value);
+    let out = document.querySelector('.out-3');
+     if (a3.indexOf(input) !== -1) {
+        out.textContent = 'true';
+     } else {
+        out.textContent = 'false';
+     }
 }
+document.querySelector('.b-3').onclick = f3;
 
 // TASK 04
-// По нажатию b-4 выполняется функция f4. Функция принимает 2 параметра, первый - массив, второй элемент. Функция должна с помощью indexOf найти и вывести в out-4 индекс искомого элемента в массиве a4 или -1 если элемента в массиве нет. Протестируйте задачу на строке '2' и числе 2. Сделайте выводы.
-
+// По нажатию b-4 выполняется функция f4. Функция принимает 2 параметра, первый - массив, второй элемент. 
+// Функция должна с помощью indexOf найти и вывести в out-4 индекс искомого элемента в массиве a4 или -1 если элемента в массиве нет. 
+// Протестируйте задачу на строке '2' и числе 2. Сделайте выводы.
 
 let a4 = [1, '1', 2, '2', '3'];
 
 const f4 = (arr, elem) => {
+    let out = document.querySelector('.out-4');
+    let index = arr.indexOf(elem);
+
+    if (index !== -1) {
+        index = arr.indexOf(Number(elem));
+    } else if (index !== -1) {
+        out.textContent = index;
+    } else {
+         out.textContent = -1;
+    }
 }
 
+document.querySelector('.b-4').onclick = () => {
+    let input = document.querySelector('.i-4').value;
+    f4(a4, input);
+};
+
 // TASK 05
-// По нажатию b-5 выполняется функция f5. Функция считывает значение из i-5-1 и индекс с которого начинается поиск в массиве с i-5-2 и с помощью indexOf и ищет данный элемент в массиве a5 c позиции указанной в i-5-2. Выводит в out-5 индекс если он есть в массиве, или -1 если нет.
+// По нажатию b-5 выполняется функция f5. Функция считывает значение из i-5-1 и индекс с которого начинается поиск в массиве с i-5-2 и 
+// с помощью indexOf и ищет данный элемент в массиве a5 c позиции указанной в i-5-2. Выводит в out-5 индекс если он есть в массиве, или -1 если нет.
 // Введите пары и изучите поведение
 // число 33 и индекс старта 2
 // число 33 и индекс старта 0
@@ -68,7 +94,17 @@ const f4 = (arr, elem) => {
 let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
 
 const f5 = () => {
+    let out = document.querySelector('.out-5');
+    let value = Number(document.querySelector('.i-5-1').value);
+    let index = Number(document.querySelector('.i-5-2').value);
+    let element = a5.indexOf(value, index);
+    if (element !== -1) {
+        out.textContent = element;
+    } else {
+        out.textContent = -1;
+    }
 }
+document.querySelector('.b-5').onclick = f5;
 
 // TASK 06
 // По нажатию b-6 выполняется функция f6. Функция считывает значение из i-6 и с помощью indexOf и ищет данный элемент в СТРОКЕ a6. Выводит в out-6 результат поиска.
@@ -78,7 +114,15 @@ const f5 = () => {
 let a6 = '987123abcdefyttb4';
 
 const f6 = () => {
+let input = document.querySelector('.i-6').value;
+let out = document.querySelector('.out-6');
+if (a6.indexOf(input) !== -1) {
+    out.textContent = input;
+} else {
+    out.textContent = 'nothing';
 }
+}
+document.querySelector('.b-6').onclick = f6;
 
 // TASK 07
 // По нажатию b-7 выполняется функция f7. Функция принимает 2 параметра, первый массив, второй - искомое число. Функция должна эмулировать работу метода indexOf с помощью цикла. Что понимается под эмуляцией? Мы не используем метод indexOf, а циклом перебираем массив и с помощью if решаем задачу. Функция должна только либо выводить в out-7 число -1, если искомого числа нет в массиве, или индекс числа в массиве.
@@ -87,7 +131,24 @@ const f6 = () => {
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = (arr, elem) => {
+let out = document.querySelector('.out-7');
+let found = false;
+    for (let i = 0; i < arr.length; i++) {
+        if (elem === arr[i]) {
+            out.textContent = i;
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        out.textContent = -1;
+    }
 }
+
+document.querySelector('.b-7').onclick = () => {
+    let input = document.querySelector('.i-7').value;
+    f7(a7, input)
+};
 
 // TASK 08 * - сложная
 // По нажатию b-8 выполняется функция f8. Функция должна получить число из i-8 и с помощью цикла и indexOf найти все индексы данного числа в массиве a8. Индексы должны быть добавлены в res08. Результат (res08) выведите в out-8. Если число не встречается в массиве, то res08 должен быть пустым.
