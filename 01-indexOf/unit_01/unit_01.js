@@ -195,8 +195,8 @@ let a9 = [
 const f9 = () => {
     let input = Number(document.querySelector('.i-9').value);
     let out = document.querySelector('.out-9');
+    
     let result = [];
-
     out.textContent = '';
 
     for (let i = 0; i < a9.length; i++) {
