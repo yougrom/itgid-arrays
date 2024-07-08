@@ -8,7 +8,7 @@ if (arr.indexOf(100) !== -1) { // если значение 100 есть в ма
     console.log('100 is in the array');
 } else {
     console.log('100 is not in the array');
-};
+}; 
 
 // includes применяется для поиска значений внутри массивов
 // includes возвращает true, если значение есть в массиве, и false, если нет

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 07</title>
+</head>
+
+<body>
+  <section>
+    <h3>Task 07</h3>
+    <p>По нажатию b-7 выполняется функция f7. Функция принимает 2 параметра, первый массив, второй - искомое
+      число. Функция должна эмулировать работу метода includes с помощью цикла. Что понимается под эмуляцией?
+      Мы не используем метод includes ( и indexOf тоже), а циклом перебираем массив и с помощью if решаем
+      задачу. Функция должна только либо выводить в out-7
+      false, если искомого числа нет в массиве, или true если есть.</p>
+    <button class="b-7">Task 07</button>
+    <div class="out-7 out">out</div>
+  </section>
+
+  <script>
+    let a7 = [21, 22, 23, 24, 25, 26, 27];
+
+    const f7 = (arr, elem) => {
+      let out = document.querySelector('.out-7');
+      let found = false;
+      console.log("Искомое число:", elem);
+      for (let i = 0; i < arr.length; i++) {
+        console.log("Проверяемый элемент:", arr[i]);
+        if (arr[i] === elem) {
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        out.textContent = 'true';
+      } else {
+        out.textContent = 'false';
+      }
+    }
+
+    document.querySelector('.b-7').addEventListener('click', () => f7(a7, 22));
+  </script>
+</body>
+
+</html>
